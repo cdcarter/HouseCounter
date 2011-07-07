@@ -18,7 +18,7 @@ function(doc,req) {
     
     doc.avg = doc.avg/doc.perfd
     
-    doc.latest = doc.shows[doc.shows.length-1].count
+    doc.latest = doc.shows[doc.perfd-1].count
     
     var data = mustache.to_html(template,doc)
     
