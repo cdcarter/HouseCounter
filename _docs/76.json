@@ -3,10 +3,10 @@
   "name": "Silent Night...the Rock Opera!",
   "venue": "Thrust",
   "shows": [
-    {"day":1,"time":[7,00],"count":null},
+    {"day":1,"time":[7,0],"count":null},
     {"day":3,"time":[8,30],"count":null},
     {"day":6,"time":[5,30],"count":null},
-    {"day":7,"time":[10,00],"count":null},
-    {"day":10,"time":[7,00],"count":null}
+    {"day":7,"time":[10,0],"count":null},
+    {"day":10,"time":[7,0],"count":null}
   ]
 }
