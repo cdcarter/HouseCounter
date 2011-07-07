@@ -7,6 +7,7 @@ function(doc,req) {
   
   var handler = {
     "info": path.show("info",tokens[1]),
+    "undo": path.update("undo",tokens[1]),
     //"hot": path.list("hot","hot"),
     //"sellouts": path.list("sellouts","sellouts"),
     "no-match": path.update("sms",tokens[0])
