@@ -1,0 +1,12 @@
+{
+  "type": "show",
+  "name": "A Scanner Darkly...the Musical!",
+  "venue": "BLB",
+  "shows": [
+    {"day":1,"time":[7,00],"count":null},
+    {"day":3,"time":[8,30],"count":null},
+    {"day":6,"time":[5,30],"count":null},
+    {"day":7,"time":[10,00],"count":null},
+    {"day":10,"time":[7,00],"count":null}
+  ]
+}
