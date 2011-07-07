@@ -1,0 +1,27 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>HouseCounter Web</title>
+  </head>
+  <body>
+    <h1>{{name}} @ {{venue}}</h1>
+    <table>
+      <tr><th>Average Size</th><td>{{avg}}</td></tr>
+      <tr><th>Latest Size</th><td>{{latest}}</td></tr>
+    </table>
+    <form method=POST action="{{action}}" >
+      <table>
+        <thead>
+          <tr><th>Day</th><th>Time</th><th>Size</th></tr>
+        </thead>
+        <tbody>
+          {{#shows}}
+            <tr><td>{{day}}</td><td>{{time}}</td><td><input id="show{{idx}}" value="{{count}}"/></td></tr>
+          {{/shows}}
+        </tbody>
+      </table>
+      <input type=submit>
+    </form>
+  </body>
+</html>
