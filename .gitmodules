@@ -1,0 +1,3 @@
+[submodule "kavanuat"]
+	path = kavanuat
+	url = git@github.com:cdcarter/kavanaut.git
