@@ -15,6 +15,8 @@ function(doc,req) {
     }
     doc.shows[i].time = doc.shows[i].time.join(":")
     doc.shows[i].idx = i
+    
+    doc.shows[i].day = ddoc.days[doc.shows[i].day]
   }
   
   if (doc.perfd == 0){
