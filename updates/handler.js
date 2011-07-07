@@ -1,14 +1,18 @@
 function(doc,req) {
   var url;
   
+  var path = require("vendor/couchapp/lib/path").init(req);
+  
+  var tokens = req.form.Body.split(" ");
+  
   var handler = {
-    "info": "http://cdcarter.iriscouch.com/sms/_design/sms/_show/info/"+req.form.Body.split(" ")[1],
-    "hot": "http://cdcarter.iriscouch.com/sms/_design/sms/_list/hot/hot",
-    "sellouts": "http://cdcarter.iriscouch.com/sms/_design/sms/_list/sellouts/sellouts",
-    "no-match": "http://cdcarter.iriscouch.com/sms/_design/sms/_update/sms/" + req.form.Body.split(" ")[0]
+    "info": path.show("info",tokens[1]),
+    //"hot": path.list("hot","hot"),
+    //"sellouts": path.list("sellouts","sellouts"),
+    "no-match": path.update("sms",tokens[0])
   };
   
-  var verb = req.form.Body.split(" ")[0];
+  var verb = tokens[0];
   
   if (typeof handler[verb] !== "undefined" && handler[verb] !== null){
     url = handler[verb];
