@@ -29,6 +29,7 @@ function(doc,req) {
   }
     
   doc.action = path.rewrite(doc._id)
+  doc.list = path.rewrite()
   
   return mustache.to_html(ddoc.templates.webinfo,doc)
 }
