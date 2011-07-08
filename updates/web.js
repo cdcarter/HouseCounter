@@ -4,7 +4,10 @@ function(doc,req) {
   var ddoc = this;  
   
   for(var i = 0, _len = doc.shows.length; i < _len; i++){
-    doc.shows[i].count = Number(req.form["show"+i]);
+    var count = req.form["show"+i];
+    if (count != "" && count != " "){
+      doc.shows[i].count = Number(count);
+    }
   }
   
   var resp = {'headers': {"Content-Type":"text/html"}};
