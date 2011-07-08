@@ -13,7 +13,7 @@ function(head,req) {
   while(row=getRow()) {
     var doc = row.value;
     doc.venue = row.key;
-    doc.link = path.show("web-info",doc.id)
+    doc.link = path.rewrite(doc.id)
     send(mustache.to_html("<tr><td><a href={{link}}>{{id}}</a></td><td>{{name}}</td><td>{{venue}}</td><td>{{latest}}</td><td>{{avg}}</td></tr>",doc))
   }
   

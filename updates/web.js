@@ -9,7 +9,7 @@ function(doc,req) {
   
   var resp = {'headers': {"Content-Type":"text/html"}};
   
-  resp.body = mustache.to_html(ddoc.templates.redirect, {'link': path.show("web-info",req.id)})
+  resp.body = mustache.to_html(ddoc.templates.redirect, {'link': path.rewrite(req.id)})
   
   return [doc,resp];
 }

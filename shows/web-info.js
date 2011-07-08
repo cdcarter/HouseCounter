@@ -28,7 +28,7 @@ function(doc,req) {
     doc.latest = doc.shows[doc.perfd-1].count
   }
     
-  doc.action = path.update("web",doc._id)
+  doc.action = path.rewrite(doc._id)
   
   return mustache.to_html(ddoc.templates.webinfo,doc)
 }
