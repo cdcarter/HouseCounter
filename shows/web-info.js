@@ -12,7 +12,7 @@ function(doc,req) {
     }
     doc.shows[i].idx = i
     
-    doc.shows[i].time = ddoc.slots[doc.shows[i].slot]
+    doc.shows[i].time = ddoc.data.slots[doc.shows[i].slot]
   }
   
   if (doc.perfd == 0){
