@@ -10,13 +10,9 @@ function(doc,req) {
       doc.avg = doc.avg + doc.shows[i].count;
       doc.perfd = doc.perfd + 1
     }
-    if (doc.shows[i].time[1] == 0) {
-      doc.shows[i].time[1] = "00"
-    }
-    doc.shows[i].time = doc.shows[i].time.join(":")
     doc.shows[i].idx = i
     
-    doc.shows[i].day = ddoc.days[doc.shows[i].day]
+    doc.shows[i].time = ddoc.slots[doc.shows[i].slot]
   }
   
   if (doc.perfd == 0){
