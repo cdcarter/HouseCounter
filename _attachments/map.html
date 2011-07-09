@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head><title>State of the Fringe</title></head>
+  <body>
+    <canvas id="canvas1"></canvas>
+  </body>
+  
+  <script type="text/javascript" src="http://processingjs.org/js/pjs/processing.min.js"></script>
+  <script src="vendor/couchapp/loader.js"></script>
+  <script type="text/javascript" charset="utf-8">
+    $.couch.app(function(app) {
+      function sketchProc(processing) {
+        processing.setup = function() {
+          processing.size(300,300)
+          processing.background(0)
+        }
+        processing.draw = function() {
+          processing.background(processing.frameCount)
+        }
+      }
+      var canvas = document.getElementById("canvas1");
+      var processingInstance = new Processing(canvas, sketchProc);
+    })
+  </script>
+</html>
