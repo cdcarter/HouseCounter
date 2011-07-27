@@ -10,6 +10,15 @@
       <tr><th>Average Size</th><td>{{avg}}</td></tr>
       <tr><th>Latest Size</th><td>{{latest}}</td></tr>
     </table>
+    <h2>Estimated Needs</h2>
+    <table>
+      {{#guess}}
+      <tr><th>Box Officers</th><td>{{box}}</td></tr>
+      <tr><th>Ushers</th><td>{{usher}}</td></tr>
+      <tr><th>Sidekicks</th><td>{{side}}</td></tr>
+      {{/guess}}
+    </table>
+    <h2>House Count for Slot</h2>
     <form method=POST action="{{action}}" >
       <table>
         <thead>
