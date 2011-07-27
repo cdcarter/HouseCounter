@@ -7,6 +7,8 @@ function(doc,req) {
     var count = req.form["show"+i];
     if (count != "" && count != " "){
       doc.shows[i].count = Number(count);
+    } else {
+      doc.shows[i].count = null;
     }
   }
   
