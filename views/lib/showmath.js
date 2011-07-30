@@ -1,5 +1,4 @@
 exports.init = function(ddoc) {
-  var _ = require("vendor/underscore")
   
   function avg(doc) {
     doc.avg = 0;

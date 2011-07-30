@@ -3,7 +3,7 @@ function(doc,req) {
   
   var mustache = require("vendor/couchapp/lib/mustache");
   var path = require("vendor/couchapp/lib/path").init(req);
-  var calc = require("vendor/showmath").init(ddoc);
+  var calc = require("views/lib/showmath").init(ddoc);
   
   doc = calc.avg(doc);
   doc.guess = calc.guess(doc);
