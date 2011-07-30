@@ -14,10 +14,10 @@ function(head,req) {
     var doc = row.value;
     doc.venue = row.key;
     doc.link = path.rewrite(doc.id)
-    if (doc.perfd==0) {
-      doc.perfd = "None";
-      doc.avg = "None";
-      doc.latest = "None";
+    if (doc.avgs.perfd==0) {
+      doc.avgs.perfd = "None";
+      doc.avgs.avg = "None";
+      doc.avgs.latest = "None";
     }
     send(mustache.to_html(ddoc.templates.listline,doc))
   }

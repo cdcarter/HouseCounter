@@ -4,6 +4,6 @@ function(doc) {
     avgs = calc.avg(doc)
     guess = calc.guess(doc,avgs)
     
-    emit(doc.venue,{"name":doc.name, "avg": avgs.avg, "latest": avgs.latest, "perfd": avgs.perfd, "id": doc._id,"guess":guess})
+    emit(doc.venue,{"name":doc.name, "avgs": avgs, "id": doc._id,"guess":guess})
   }
 }
