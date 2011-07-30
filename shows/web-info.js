@@ -7,6 +7,12 @@ function(doc,req) {
   
   doc = calc.avg(doc);
   doc.guess = calc.guess(doc);
+  
+  if (doc.perfd==0) {
+    doc.perfd = "None";
+    doc.avg = "None";
+    doc.latest = "None";
+  }
     
   doc.action = path.rewrite(doc._id)
   doc.list = path.rewrite()

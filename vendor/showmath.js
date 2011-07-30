@@ -14,11 +14,7 @@ exports.init = function(ddoc) {
       doc.shows[i].time = ddoc.data.slots[doc.shows[i].slot]
     }
     
-    if (doc.perfd == 0){
-      doc.avg = "None"
-      doc.latest = "None"
-      doc.perfd = "None"
-    } else {
+    if (doc.perfd !== 0){
       doc.avg = doc.avg/doc.perfd
       doc.latest = doc.shows[doc.perfd-1].count
     }
@@ -29,26 +25,23 @@ exports.init = function(ddoc) {
   function guess(doc) {
     if(typeof doc.perfd === "undefined") {
       doc = avg(doc)
-    }
-    var venue = _.detect(ddoc.data.venues["by-name"],function(v){return v.name==doc.venue})
-    var counts = _.detect(ddoc.data.venues.counts,function(v){return v.short==venue.short})
+    }    
+    var needs = {"side":doc["side-min"],"box":doc["box-min"],"usher":doc["ush-min"]}
     
-    var needs = {"side":counts["side-min"],"box":counts["box-min"],"usher":counts["ush-min"]}
-    
-    if(doc.perfd === "None" ) {
+    if(doc.perfd === 0 ) {
       return needs;
     }
-    if(doc.avg >= (venue.capacity*0.4)) {
-      needs = addVol(needs,counts);
+    if(doc.avg >= (doc.capacity*0.4)) {
+      needs = addVol(needs,doc);
     }
-    if(doc.avg >= (venue.capacity*0.5)) {
-      needs = addVol(needs,counts);
+    if(doc.avg >= (doc.capacity*0.5)) {
+      needs = addVol(needs,doc);
     }
-    if(doc.avg >= (venue.capacity*0.6)) {
-      needs = addVol(needs,counts);
+    if(doc.avg >= (doc.capacity*0.6)) {
+      needs = addVol(needs,doc);
     }
-    if(doc.avg >= (venue.capacity*0.7)) {
-      needs = addVol(needs,counts);
+    if(doc.avg >= (doc.capacity*0.7)) {
+      needs = addVol(needs,doc);
     }
     return needs;
   }
