@@ -7,8 +7,10 @@
   <body>
     <h1>{{name}} @ {{venue}}</h1>
     <table>
+      {{#avgs}}
       <tr><th>Average Size</th><td>{{avg}}</td></tr>
       <tr><th>Latest Size</th><td>{{latest}}</td></tr>
+      {{/avgs}}
     </table>
     <h2>Estimated Needs</h2>
     <table>

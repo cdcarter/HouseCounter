@@ -1,43 +1,39 @@
-exports.init = function(ddoc) {
+exports.init = function() {
   
   function avg(doc) {
-    doc.avg = 0;
-    doc.perfd = 0;
+    var avgs = {"avg":0,"perfd":0}
     for(var i=0,_len=doc.shows.length; i < _len; ++i) {
       if (typeof doc.shows[i].count !== "undefined" && doc.shows[i].count !== null){
-        doc.avg = doc.avg + doc.shows[i].count;
-        doc.perfd = doc.perfd + 1
+        avgs.avg = avgs.avg + doc.shows[i].count;
+        avgs.perfd = avgs.perfd + 1
       }
       doc.shows[i].idx = i
     }
     
-    if (doc.perfd !== 0){
-      doc.avg = doc.avg/doc.perfd
-      doc.latest = doc.shows[doc.perfd-1].count
+    if (avgs.perfd !== 0){
+      avgs.avg = avgs.avg/avgs.perfd
+      avgs.latest = doc.shows[avgs.perfd-1].count
     }
     
-    return doc;
+    return avgs;
   }
   
-  function guess(doc) {
-    if(typeof doc.perfd === "undefined") {
-      doc = avg(doc)
-    }    
+  function guess(doc,avgs) {
     var needs = {"side":doc["side-min"],"box":doc["box-min"],"usher":doc["ush-min"]}
     
-    if(doc.perfd === 0 ) {
+    if(avgs.perfd === 0 ) {
       return needs;
     }
-    if(doc.avg >= (doc.capacity*0.4)) {
+    if(avgs.avg >= (doc.capacity*0.4)) {
       needs = addVol(needs,doc);
     }
-    if(doc.avg >= (doc.capacity*0.5)) {
+    if(avgs.avg >= (doc.capacity*0.5)) {
       needs = addVol(needs,doc);
     }
-    if(doc.avg >= (doc.capacity*0.6)) {
+    if(avgs.avg >= (doc.capacity*0.6)) {
       needs = addVol(needs,doc);
     }
-    if(doc.avg >= (doc.capacity*0.7)) {
+    if(avgs.avg >= (doc.capacity*0.7)) {
       needs = addVol(needs,doc);
     }
     return needs;
