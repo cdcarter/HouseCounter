@@ -10,6 +10,7 @@ function(doc,req) {
   
   for (var i=0, _len = doc.shows.length; i<_len; i++) {
     doc.shows[i].time = ddoc.data.slots[doc.shows[i].slot]
+    doc.shows[i].idx = i
   }
     
   if (doc.avgs.perfd==0) {

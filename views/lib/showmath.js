@@ -7,7 +7,6 @@ exports.init = function() {
         avgs.avg = avgs.avg + doc.shows[i].count;
         avgs.perfd = avgs.perfd + 1
       }
-      doc.shows[i].idx = i
     }
     
     if (avgs.perfd !== 0){
