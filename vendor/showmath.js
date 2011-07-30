@@ -10,8 +10,6 @@ exports.init = function(ddoc) {
         doc.perfd = doc.perfd + 1
       }
       doc.shows[i].idx = i
-      
-      doc.shows[i].time = ddoc.data.slots[doc.shows[i].slot]
     }
     
     if (doc.perfd !== 0){

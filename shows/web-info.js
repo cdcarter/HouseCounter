@@ -8,6 +8,10 @@ function(doc,req) {
   doc = calc.avg(doc);
   doc.guess = calc.guess(doc);
   
+  for (var i=0, _len = doc.shows.length; i<_len; i++) {
+    doc.shows[i].time = ddoc.data.slots[doc.shows[i].slot]
+  }
+    
   if (doc.perfd==0) {
     doc.perfd = "None";
     doc.avg = "None";
