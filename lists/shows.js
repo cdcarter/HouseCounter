@@ -8,13 +8,13 @@ function(head,req) {
   
   send("<!doctype html><html><head><title>HouseCounter Web</title></head><body><h1>Shows</h1>")
   
-  send("<table><tr><th>ID</th><th>Name</th><th>Venue</th><th>Latest Size</th><th>Average Size</th></tr>")
+  send("<table><tr><th>ID</th><th>Name</th><th>Venue</th><th>Latest Size</th><th>Average Size</th><th>Box</th><th>Usher</th><th>Side</th></tr>")
   
   while(row=getRow()) {
     var doc = row.value;
     doc.venue = row.key;
     doc.link = path.rewrite(doc.id)
-    send(mustache.to_html("<tr><td><a href={{link}}>{{id}}</a></td><td>{{name}}</td><td>{{venue}}</td><td>{{latest}}</td><td>{{avg}}</td></tr>",doc))
+    send(mustache.to_html(ddoc.templates.listline,doc))
   }
   
   send("</table></body></html>")
