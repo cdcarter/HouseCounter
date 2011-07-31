@@ -7,6 +7,7 @@ function(doc,req) {
   
   doc.avgs = calc.avg(doc);
   doc.guess = calc.guess(doc,doc.avgs);
+  doc.prediction = calc.predict(doc);
   
   for (var i=0, _len = doc.shows.length; i<_len; i++) {
     doc.shows[i].time = ddoc.data.slots[doc.shows[i].slot]
