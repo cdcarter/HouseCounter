@@ -8,7 +8,7 @@ function(head,req) {
   
   send("<!doctype html><html><head><title>HouseCounter Web</title></head><body><h1>Shows</h1>")
   
-  send("<table><tr><th>ID</th><th>Name</th><th>Venue</th><th>Latest Size</th><th>Average Size</th><th>Box</th><th>Usher</th><th>Side</th></tr>")
+  send("<table><tr><th>ID</th><th>Name</th><th>Venue</th><th>Latest Size</th><th>Average Size</th><th>Prediction</th><th>Box</th><th>Usher</th><th>Side</th></tr>")
   
   while(row=getRow()) {
     var doc = row.value;
