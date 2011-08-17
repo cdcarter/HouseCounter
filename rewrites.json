@@ -1,5 +1,7 @@
 [
   {"name":"list", "from": "/", "to":"/_list/shows/shows", "query": {"include_docs": "true"}},
+  {"name":"slot-report", "from": "/slots","to":"/_list/slotreport/reported","query":{"group_level":"1"}},
+  {"name":"slot-indepth","formats":{"id":"int"},"from":"/slots/:id", "to":"/_list/slotindepth/reported","query":{"reduce":"false","startkey":[":id"],"endkey":[":id",{}]}},
   {"name":"web-info", "from": "/:id", "method":"GET", "to":"/_show/web-info/:id"},
   {"name":"web-update", "from": "/:id", "method":"POST", "to":"/_update/web/:id"}
 ]

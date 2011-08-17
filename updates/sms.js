@@ -21,7 +21,7 @@ function(doc,req) {
     if (whoops) {
       message = "That show doesn't have any more times to enter!";
     } else {
-      message = "Got it, comrade!";
+      message = "It's HM Appreciation Day!  Evil Fringe Robot appreciates you!";
     }
   }
   
