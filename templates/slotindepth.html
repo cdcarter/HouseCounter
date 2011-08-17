@@ -1,0 +1,17 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>HouseCounter Web</title>
+</head>
+<body>
+  <h1>Slot Report: {{time}} ({{slot}})</h1>
+  <table>
+    <tr><th>Venue</th><th>Count</th><th>Show ID</th></tr>
+    {{#rows}}
+    <tr><td>{{venue}}</td><td>{{count}}</td><td><a href="{{link}}">{{id}}</a></td></tr>
+    {{/rows}}
+  </table>
+  <a href="{{slotreport}}">Slot Report</a> | <a href="{{showlist}}">Show List</a>
+</body>
+</html>

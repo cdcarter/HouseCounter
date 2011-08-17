@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+  <title>HouseCounter: Slot Report</title>
+</head>
+<body>
+  <h1>Slot Report</h1>
+  <table>
+    <tr><th>Slot</th><th>Complete</th><th>Percent</th></tr>
+    {{#rows}}
+      <tr><td><a href="{{link}}">{{slot}}</td><td>{{complete}}</td><td>{{percent}}</td></tr>
+    {{/rows}}
+  </table>
+</body>

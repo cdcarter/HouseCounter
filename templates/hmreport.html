@@ -1,0 +1,16 @@
+<!doctype html>
+
+<html>
+<head>
+  <title>HouseCounter HM Report</title>
+</head>
+
+<body>
+  <h1>HM Report: {{venue}}</h1>
+  <table>
+    {{#rows}}
+      <tr><th>{{id}}</th><td>{{name}}</td><td><input name="{{id}}-{{slot}}" value={{count}}></td></tr>
+    {{/rows}}
+  </table>
+</body>
+</html>
